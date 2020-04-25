@@ -1,0 +1,14 @@
+{{!< default}}
+
+{{> "navbar" }}
+
+{{#post}}
+<main class="container columns">
+    <article class="post column is-offset-2-tablet is-8-tablet">
+        <a href="{{ url }}" title="{{ title }}"><h1 class="post-title">{{title}}</h1></a>
+        <section class="post-content">
+            {{content}}
+        </section>
+    </article>
+</main>
+{{/post}}

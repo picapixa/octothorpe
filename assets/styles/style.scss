@@ -4,10 +4,12 @@
 @import 'variables';
 
 @import "~bulma/sass/base/_all.sass";
+@import "~bulma/sass/grid/_all.sass";
 @import "~bulma/sass/elements/button.sass";
 @import "~bulma/sass/elements/container.sass";
 @import "~bulma/sass/components/navbar.sass";
 @import "~bulma/sass/components/level.sass";
 
-@import "general";
+@import "base";
+@import "post";
 @import "home";

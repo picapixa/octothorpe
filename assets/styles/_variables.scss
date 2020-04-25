@@ -1,11 +1,39 @@
-$text: $grey-lightest;
+// Octothorpe-specific variables
+// =======================================================
+
+$o-header-color: $white;
+
+// - Type scale
+// - 1.125: major second
+// - https://type-scale.com/
+$o-header-size-1: 2.566rem;
+$o-header-size-2: 2.281rem;
+$o-header-size-3: 2.027rem;
+$o-header-size-4: 1.802rem;
+$o-header-size-5: 1.602rem;
+$o-header-size-6: 1.424rem;
+$o-header-size-7: 1.266rem;
+$o-header-size-8: 1.125rem;
+$o-header-size-9: 1rem;
+
+$o-base-color: #143e62;
+
+// Bulma variables
+// =======================================================
+
+$text: #b7deff;
+
+$code-background: darken($o-base-color, 5%);
 
 $link: $white-ter;
 $link-hover: $white;
 $link-focus: $white;
 
-$body-background-color: #143e62;
+$body-background-color: $o-base-color;
 $body-family: "Inter", BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Helvetica", "Arial", sans-serif;
 
 $navbar-background-color: darken($body-background-color, 10%);
 $navbar-height: 4.5rem;
+$navbar-item-color: $white-ter;
+
+$strong-color: inherit;
