@@ -1,5 +1,19 @@
 .post {
   line-height: 1.75;
+  margin-bottom: $size-1;
+
+  .post-header {
+    padding: $size-1 0;
+  }
+
+  .post-tag {
+    letter-spacing: 0.25rem;
+  }
+
+  .post-metadata {
+    margin-top: $size-1;
+    margin-bottom: $size-1;
+  }
 
   .post-title {
     font-size: $o-post-title-size;

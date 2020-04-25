@@ -1,11 +1,7 @@
 .home-template {
-  article {
+  .post {
     margin: $size-3 $size-6;
 
-    .post-tag {
-      letter-spacing: 0.25rem;
-    }
-    
     .post-title {
       margin-bottom: $size-7;
     }

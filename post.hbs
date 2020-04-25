@@ -3,12 +3,24 @@
 {{> "navbar" }}
 
 {{#post}}
-<main class="container columns">
-    <article class="post column is-offset-2-tablet is-8-tablet">
-        <a href="{{ url }}" title="{{ title }}"><h1 class="post-title">{{title}}</h1></a>
-        <section class="post-content">
+<main class="post">
+    <header class="post-header">
+        <div class="container columns">
+            <div class="post-metadata column is-offset-2-tablet is-8-tablet">
+                {{#if tags}}
+                <div class="post-tags">
+                    <span class="post-tag is-uppercase is-size-7">{{ primary_tag.name }}</span>
+                </div>
+                {{/if}}
+                <a href="{{ url }}" title="{{ title }}"><h1 class="post-title">{{title}}</h1></a>
+                <time datetime="{{date format='DD-MMM-YYYY'}}">{{date format="DD MMMM YYYY"}}</time>
+            </div>
+        </div>
+    </header>
+    <article class="container columns">
+        <div class="post-content column is-offset-2-tablet is-8-tablet">
             {{content}}
-        </section>
+        </div>
     </article>
 </main>
 {{/post}}
