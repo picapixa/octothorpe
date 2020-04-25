@@ -9,12 +9,24 @@ h6 {
   margin: $size-7 0;
 }
 
-h1 { font-size: $o-header-size-4; }
-h2 { font-size: $o-header-size-5; }
-h3 { font-size: $o-header-size-6; }
-h4 { font-size: $o-header-size-7; }
-h5 { font-size: $o-header-size-8; }
-h6 { font-size: $o-header-size-9; }
+h1 { font-size: $o-text-size-4; }
+h2 { font-size: $o-text-size-5; }
+h3 { font-size: $o-text-size-6; }
+h4 { font-size: $o-text-size-7; }
+h5 { font-size: $o-text-size-8; }
+h6 { font-size: $o-text-size-9; }
+
+ul {
+  list-style: unset;
+  padding-left: $size-5;
+}
+
+p,
+ul,
+ol,
+pre {
+  margin-bottom: $size-4;
+}
 
 footer {
   font-size: $size-7;

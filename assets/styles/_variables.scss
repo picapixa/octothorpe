@@ -6,17 +6,25 @@ $o-header-color: $white;
 // - Type scale
 // - 1.125: major second
 // - https://type-scale.com/
-$o-header-size-1: 2.566rem;
-$o-header-size-2: 2.281rem;
-$o-header-size-3: 2.027rem;
-$o-header-size-4: 1.802rem;
-$o-header-size-5: 1.602rem;
-$o-header-size-6: 1.424rem;
-$o-header-size-7: 1.266rem;
-$o-header-size-8: 1.125rem;
-$o-header-size-9: 1rem;
+$o-text-size-1: 2.566rem;
+$o-text-size-2: 2.281rem;
+$o-text-size-3: 2.027rem;
+$o-text-size-4: 1.802rem;
+$o-text-size-5: 1.602rem;
+$o-text-size-6: 1.424rem;
+$o-text-size-7: 1.266rem;
+$o-text-size-8: 1.125rem;
+$o-text-size-9: 1rem;
+$o-text-size-10: 0.889rem;
+
+
+$o-post-title-size: $o-text-size-1;
 
 $o-base-color: #143e62;
+
+$o-content-bookmark-card-radius: 0.5rem;
+$o-content-bookmark-card-description-size: $o-text-size-10;
+$o-content-bookmark-card-description-padding: $size-5;
 
 // Bulma variables
 // =======================================================
