@@ -14,7 +14,7 @@ function scss(done) {
         styleAlias({
             "~": "node_modules/",
         }),
-        sass({ compressed: true }).on('error', sass.logError),
+        sass({ outputStyle: 'compressed' }).on('error', sass.logError),
         dest('assets/build/'),
         livereload()
     ], done);
