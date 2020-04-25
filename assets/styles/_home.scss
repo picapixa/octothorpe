@@ -1,13 +1,18 @@
 .home-template {
   article {
-    margin: $size-3 0;
+    margin: $size-3 $size-6;
 
-    .post-tags {
-      letter-spacing: 0.4rem;
+    .post-tag {
+      letter-spacing: 0.25rem;
     }
     
     .post-title {
       margin-bottom: $size-7;
     }
-  }  
+
+    @media screen and (min-width: $desktop) {
+      margin-left: 0;
+      margin-right: 0;
+    }
+  }
 }
