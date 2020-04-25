@@ -2,6 +2,7 @@ import gulp, { src, dest, series, parallel } from 'gulp';
 import livereload from 'gulp-livereload';
 import run from 'gulp-run';
 import sass from 'gulp-sass';
+import styleAlias from 'gulp-style-aliases';
 
 import checkNode from 'check-node-version';
 import del from 'del';
@@ -10,6 +11,9 @@ import pump from 'pump';
 function scss(done) {
     pump([
         src('assets/styles/*.scss'),
+        styleAlias({
+            "~": "node_modules/",
+        }),
         sass({ compressed: true }).on('error', sass.logError),
         dest('assets/build/'),
         livereload()
