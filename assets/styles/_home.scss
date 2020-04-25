@@ -1,0 +1,13 @@
+.home-template {
+  article {
+    margin: $size-3 0;
+
+    .post-tags {
+      letter-spacing: 0.4rem;
+    }
+    
+    .post-title {
+      margin-bottom: $size-7;
+    }
+  }  
+}

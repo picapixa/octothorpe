@@ -3,14 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>{{ meta_title }}</title>
 
+    <link href="https://fonts.googleapis.com/css?family=Inter:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{{ asset "build/style.css" }}" />
 
     {{ ghost_head }}
 </head>
-<body>
-    {{ body }}
+<body class="{{body_class}}">
+    {{{ body }}}
+
+    <footer class="container level">
+        <div class="level-left">
+            &copy; {{date format="YYYY" }} Raffy Alcoriza
+        </div>
+        <div class="level-right">
+            <p>Build a smarter and more inclusive world.</p>
+        </div>
+    </footer>
+
     {{ ghost_foot }}
 </body>
 </html>
