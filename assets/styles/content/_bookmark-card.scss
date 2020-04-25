@@ -1,0 +1,70 @@
+.kg-bookmark-card {
+  width: 100%;
+  position: relative;
+}
+
+.kg-bookmark-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row-reverse;
+  text-decoration: none;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: $o-content-bookmark-card-radius;
+  overflow: hidden;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.kg-bookmark-content {
+  font-size: $o-content-bookmark-card-description-size;
+  padding: $o-content-bookmark-card-description-padding;
+  order: 1;
+}
+
+.kg-bookmark-title {
+  font-weight: 600;
+}
+
+.kg-bookmark-metadata,
+.kg-bookmark-description {
+  margin-top: .5em;
+}
+
+.kg-bookmark-description {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+.kg-bookmark-metadata {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  
+  .kg-bookmark-icon {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    margin-right: $size-7;
+  }
+}
+
+.kg-bookmark-thumbnail {
+  img {
+    max-width: 100%;
+    height: auto;
+    vertical-align: bottom;
+    object-fit: cover;  
+  }
+}
+
+.kg-bookmark-author {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}

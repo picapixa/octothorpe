@@ -8,9 +8,11 @@ import checkNode from 'check-node-version';
 import del from 'del';
 import pump from 'pump';
 
+const CSS_PATH = 'assets/styles/**/*.scss';
+
 function scss(done) {
     pump([
-        src('assets/styles/*.scss'),
+        src(CSS_PATH),
         styleAlias({
             "~": "node_modules/",
         }),
@@ -36,7 +38,7 @@ function serve(done) {
     done();
 }
 
-const _watchScss = () => gulp.watch('assets/styles/*.scss', scss);
+const _watchScss = () => gulp.watch(CSS_PATH, scss);
 const _watchHbs = () => gulp.watch('*.hbs', hbs);
 const watch = parallel(_watchScss, _watchHbs);
 // const watch = _watchScss;
