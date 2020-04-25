@@ -2,20 +2,24 @@
   line-height: 1.75;
   margin-bottom: $size-1;
 
-  .post-header {
-    padding: $size-1 0;
-  }
-
   .post-tag {
     letter-spacing: 0.25rem;
   }
 
   .post-metadata {
-    margin-top: $size-1;
-    margin-bottom: $size-1;
+    border-bottom: lighten($o-base-color, 40%) 2px dashed;
+    margin-top: $size-3;
+    margin-bottom: $size-3;
+    padding-bottom: $size-3;
   }
 
   .post-title {
     font-size: $o-post-title-size;
+  }
+}
+
+.post-template .post {
+  &.has-featured-image {
+    margin-top: -$navbar-height;
   }
 }
