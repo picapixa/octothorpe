@@ -1,0 +1,22 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: $o-header-color;
+  font-weight: $weight-semibold;
+  margin: $size-7 0;
+}
+
+h1 { font-size: $o-header-size-4; }
+h2 { font-size: $o-header-size-5; }
+h3 { font-size: $o-header-size-6; }
+h4 { font-size: $o-header-size-7; }
+h5 { font-size: $o-header-size-8; }
+h6 { font-size: $o-header-size-9; }
+
+footer {
+  font-size: $size-7;
+  padding: $size-1 0;
+}
