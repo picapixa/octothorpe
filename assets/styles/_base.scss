@@ -16,9 +16,18 @@ h4 { font-size: $o-text-size-7; }
 h5 { font-size: $o-text-size-8; }
 h6 { font-size: $o-text-size-9; }
 
+
+ul,
+ol {
+  padding-left: $size-4;
+
+  li {
+    padding-left: $size-7;
+  }
+}
+
 ul {
   list-style: unset;
-  padding-left: $size-5;
 }
 
 p,
