@@ -1,0 +1,17 @@
+{{!< default}}
+
+{{> navbar }}
+
+<main class="posts-container container">
+    {{#get "posts" limit="1" filter="featured:true" include="authors,tags" }}
+        {{#foreach posts}}
+            {{> post-item index_featured="true" }}
+        {{/foreach}}
+    {{/get}}
+
+    {{#get "posts" filter="featured:false" include="authors,tags" }}
+        {{#foreach posts}}
+            {{> post-item }}
+        {{/foreach}}
+    {{/get}}
+</main>
