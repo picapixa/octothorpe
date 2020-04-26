@@ -140,10 +140,15 @@
   }
 }
 
-@media screen and (min-width: $tablet) {
-  footer {
+footer {
+  text-align: center;
+
+  @media screen and (min-width: $tablet) {
+    .left {
+      text-align: left;
+    }
     .right {
       text-align: right;
-    }
+    }  
   }
 }

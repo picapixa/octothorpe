@@ -1,0 +1,18 @@
+.kg-image-card {
+  &.kg-width-full {
+    position: relative;
+    width: 100vw;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+  }
+
+  @media screen and (min-width: $tablet) {
+    &.kg-width-wide {
+      margin: 0 -15%;
+      min-width: 100%;
+      position: relative;
+    }      
+  }
+}
