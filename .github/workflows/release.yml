@@ -20,7 +20,9 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
 
-    # Runs a single command using the runners shell
+    - name: Install package.json
+      run: npm install
+
     - name: Prepare release
       run: npm run release
 
