@@ -1,10 +1,14 @@
 {
     "name": "octothorpe",
     "description": "Ghost theme for The Hash",
-    "version": "0.1.0",
+    "version": "1.0.0",
     "engines": {
         "ghost": ">=3.0.0",
         "ghost-api": "v3"
+    },
+    "scripts": {
+        "dev": "gulp",
+        "release": "gulp release"
     },
     "license": "MIT",
     "author": {
@@ -22,6 +26,7 @@
         "@types/gulp": "^4.0.6",
         "@types/gulp-rename": "^0.0.33",
         "@types/gulp-sass": "^4.0.0",
+        "@types/gulp-zip": "^4.0.1",
         "@types/pump": "^1.1.0",
         "@types/sass": "^1.16.0",
         "check-node-version": "^4.0.3",
@@ -32,6 +37,7 @@
         "gulp-run": "^1.7.1",
         "gulp-sass": "^4.1.0",
         "gulp-style-aliases": "^1.1.11",
+        "gulp-zip": "^5.0.1",
         "husky": "^4.2.5",
         "lint-staged": "^10.1.7",
         "prettier": "^2.0.5",

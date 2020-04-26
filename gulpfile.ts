@@ -3,6 +3,7 @@ import livereload from 'gulp-livereload';
 import rename from 'gulp-rename';
 import sass from 'gulp-sass';
 import styleAlias from 'gulp-style-aliases';
+import zip from 'gulp-zip';
 
 import checkNode from 'check-node-version';
 import del from 'del';
@@ -72,5 +73,20 @@ function checkNodeVersion(done) {
     });
 }
 
+function zipRelease(done) {
+    const p = require('./package.json');
+    const filename = `${p.name}-v${p.version}.zip`;
+    pump([
+        src([
+            "**",
+            "!node_modules", "!node_modules/**",
+            "!dist", "!dist/**"
+        ]),
+        zip(filename),
+        dest('dist/'),
+    ], done);
+}
+
 gulp.task('build', build);
 gulp.task('default', series([checkNodeVersion, clean, build, serve, watch]));
+gulp.task('release', series([build, zipRelease]));
