@@ -9,9 +9,9 @@
         {{/foreach}}
     {{/get}}
 
-    {{#get "posts" filter="featured:false" include="authors,tags" }}
-        {{#foreach posts}}
-            {{> post-item }}
-        {{/foreach}}
-    {{/get}}
+    {{#foreach posts}}
+        {{> post-item }}
+    {{/foreach}}
 </main>
+
+{{pagination}}

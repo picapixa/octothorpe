@@ -24,6 +24,7 @@
   }
 }
 
+.paged,
 .home-template,
 .tag-template {
 
@@ -113,6 +114,29 @@
         padding: $size-6 0;
       }
     }
+  }
+}
+
+.pagination {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+
+  a {
+    padding: $size-6;
+    margin: $size-6;
+  }
+
+  .previous {
+    grid-column: 1;
+    text-align: left;
+  }
+  .reference {
+    grid-column: 2;
+    text-align: center;
+  }
+  .next {
+    grid-column: 3;
+    text-align: right;
   }
 }
 

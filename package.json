@@ -3,6 +3,7 @@
     "description": "Ghost theme for The Hash",
     "version": "0.1.0",
     "engines": {
+        "ghost": ">=3.0.0",
         "ghost-api": "v3"
     },
     "license": "MIT",

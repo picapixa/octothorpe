@@ -3,13 +3,9 @@
 {{> navbar }}
 
 <main class="container posts-container">
-    {{#get "posts" limit="1" filter="featured:true" }}
-        {{#foreach posts}}
-            {{> post-item index_featured="true" }}
-        {{/foreach}}
-    {{/get}}
-
     {{#foreach posts}}
         {{> post-item }}
     {{/foreach}}
 </main>
+
+{{pagination}}
