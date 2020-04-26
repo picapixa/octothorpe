@@ -27,6 +27,7 @@ jobs:
       run: npm run release
 
     - name: Add tag to release
+      id: add_tag
       uses: Klemensas/action-autotag@stable
       with:
         GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
@@ -37,8 +38,8 @@ jobs:
       env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-          tag_name: ${{ github.ref }}
-          release_name: Release ${{ github.ref }}
+          tag_name: ${{ steps.add_tag.outputs.tagName }}
+          release_name: Release ${{ steps.add_tag.outputs.tagName }}
           draft: false
           prerelease: false
 
