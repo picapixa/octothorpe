@@ -27,6 +27,8 @@ $o-text-size-10: 0.889rem;
 
 
 $o-post-title-size: $o-text-size-1;
+$o-post-time-color: rgba(darken($text, 20%), 0.8);
+$o-post-time-size: $o-text-size-10;
 
 $o-index-header-background-color: darken($o-base-color, 5%);
 $o-index-header-padding: 7.5rem 0;

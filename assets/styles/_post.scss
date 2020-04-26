@@ -14,7 +14,16 @@
   }
 
   .post-title {
+    display: block;
     font-size: $o-post-title-size;
+    margin-bottom: $size-7;
+  }
+
+  .post-publish-date {
+    color: $o-post-time-color;
+    display: block;
+    font-size: $o-post-time-size;
+    margin-bottom: $size-7;
   }
 }
 
