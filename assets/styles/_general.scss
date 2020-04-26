@@ -1,4 +1,6 @@
 .navbar {
+  padding: 0 0.25rem;
+  
   &.content-has-featured-image {
     background: rgba($navbar-background-color, 0.5);
   }

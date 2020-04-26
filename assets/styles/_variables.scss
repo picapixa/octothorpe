@@ -41,6 +41,10 @@ $o-content-bookmark-card-description-padding: $size-5;
 // Bulma variables
 // =======================================================
 
+$tablet: 768px;
+
+$column-gap: 1rem;
+
 $code-background: darken($o-base-color, 5%);
 
 $link: $white-ter;
