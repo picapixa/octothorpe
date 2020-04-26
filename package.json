@@ -32,13 +32,28 @@
         "gulp-run": "^1.7.1",
         "gulp-sass": "^4.1.0",
         "gulp-style-aliases": "^1.1.11",
+        "husky": "^4.2.5",
+        "lint-staged": "^10.1.7",
+        "prettier": "^2.0.5",
         "pump": "^3.0.0",
         "sass": "^1.26.5",
+        "stylelint": "^13.3.3",
+        "stylelint-config-sass-guidelines": "^7.0.0",
         "ts-node": "^8.9.0",
         "typescript": "^3.8.3"
     },
     "dependencies": {
         "@fortawesome/fontawesome-free": "^5.13.0",
         "bulma": "^0.8.2"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged"
+        }
+    },
+    "lint-staged": {
+        "assets/styles/**/*.scss": [
+            "prettier --write"
+        ]
     }
 }
