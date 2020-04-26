@@ -1,5 +1,56 @@
 .navbar {
-  &.post-has-featured-image {
+  &.content-has-featured-image {
     background: rgba($navbar-background-color, 0.5);
+  }
+}
+
+.index-header {
+  align-items: center;
+  background: $o-index-header-background-color;
+  color: $o-index-header-text-color;
+  display: flex;
+  height: 50vh;
+
+  > .index-header-container {
+    margin-top: $size-5;
+    margin-bottom: $size-5;
+    padding: $size-5;
+  }
+
+  @media screen and (min-width: $desktop) {
+    > .index-header-container {
+      padding: $size-5 0;
+    }
+  }
+}
+
+.home-template,
+.tag-template {
+
+  .posts-container {
+    padding: $size-3 0;
+
+    .post {
+      margin-bottom: 0;
+      padding: $size-6;
+  
+      .post-title {
+        margin-top: 0;
+        margin-bottom: $size-7;
+      }
+  
+      @media screen and (min-width: $desktop) {
+        margin-left: 0;
+        margin-right: 0;
+      }
+    }
+  }
+
+  @media screen and (min-width: $desktop) {
+    .posts-container {
+      .post {
+        padding: $size-6 0;
+      }
+    }
   }
 }

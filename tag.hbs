@@ -1,0 +1,22 @@
+{{!< default}}
+
+{{> navbar }}
+
+{{#tag}}
+<header class="index-header">
+    <div class="index-header-container container">
+        <h1 class="index-title">{{ name }}</h1>
+        {{#if description}}
+        <div class="index-description">
+            {{ description }}
+        </div>
+        {{/if}}
+    </div>
+</header>
+{{/tag}}
+
+<main class="container posts-container">
+    {{#foreach posts}}
+        {{> post-item }}
+    {{/foreach}}
+</main>

@@ -1,3 +1,11 @@
+// General variables
+// =======================================================
+
+$text: #b7deff;
+
+$o-base-color: #143e62;
+
+
 // Octothorpe-specific variables
 // =======================================================
 
@@ -20,7 +28,9 @@ $o-text-size-10: 0.889rem;
 
 $o-post-title-size: $o-text-size-1;
 
-$o-base-color: #143e62;
+$o-index-header-background-color: darken($o-base-color, 5%);
+$o-index-header-padding: 7.5rem 0;
+$o-index-header-text-color: lighten($text, 10%);
 
 $o-content-bookmark-card-radius: 0.5rem;
 $o-content-bookmark-card-description-size: $o-text-size-10;
@@ -28,8 +38,6 @@ $o-content-bookmark-card-description-padding: $size-5;
 
 // Bulma variables
 // =======================================================
-
-$text: #b7deff;
 
 $code-background: darken($o-base-color, 5%);
 
