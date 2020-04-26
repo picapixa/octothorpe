@@ -1,0 +1,9 @@
+<article class="{{ post_class }}">
+    {{^is "tag" }}{{#primary_tag}}
+        <a href="{{ url }}" title="{{ name }}" class="post-tag is-uppercase is-size-7">{{ name }}</a>
+    {{/primary_tag}}{{/is}}
+    <a href="{{ url }}">
+        <h2 class="post-title is-size-3 has-text-weight-bold">{{ title }}</h2>
+    </a>
+    <p>{{ excerpt }}</p>
+</article>
