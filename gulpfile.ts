@@ -75,7 +75,7 @@ function checkNodeVersion(done) {
 
 function zipRelease(done) {
     const p = require('./package.json');
-    const filename = `${p.name}-v${p.version}.zip`;
+    const filename = `${p.name}.zip`;
     pump([
         src([
             "**",
