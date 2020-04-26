@@ -115,3 +115,11 @@
     }
   }
 }
+
+@media screen and (min-width: $tablet) {
+  footer {
+    .right {
+      text-align: right;
+    }
+  }
+}
