@@ -1,6 +1,6 @@
 import gulp, { src, dest, series, parallel } from 'gulp';
 import livereload from 'gulp-livereload';
-import run from 'gulp-run';
+import rename from 'gulp-rename';
 import sass from 'gulp-sass';
 import styleAlias from 'gulp-style-aliases';
 
@@ -10,6 +10,21 @@ import pump from 'pump';
 
 const CSS_PATH = 'assets/styles/**/*.scss';
 
+function copyFontawesomeCss(done) {
+    return pump([
+        src("node_modules/@fortawesome/fontawesome-free/css/all.min.css"),
+        rename('fontawesome.min.css'),
+        dest('assets/build/css')
+    ], done);
+}
+function copyFontawesomeFonts(done) {
+    return pump([
+        src("node_modules/@fortawesome/fontawesome-free/webfonts/**"),
+        dest('assets/build/webfonts/')
+    ], done);
+}
+const copyFontAwesome = parallel(copyFontawesomeCss, copyFontawesomeFonts);
+
 function scss(done) {
     pump([
         src(CSS_PATH),
@@ -17,7 +32,8 @@ function scss(done) {
             "~": "node_modules/",
         }),
         sass({ outputStyle: 'compressed' }).on('error', sass.logError),
-        dest('assets/build/'),
+        rename('style.min.css'),
+        dest('assets/build/css/'),
         livereload()
     ], done);
 }
@@ -29,9 +45,7 @@ function hbs(done) {
     ], done);
 }
 
-function build(done) {
-    return scss(done); // TODO: add JS serially
-}
+const build = series(copyFontAwesome, scss);
 
 function serve(done) {
     livereload.listen();
@@ -41,11 +55,6 @@ function serve(done) {
 const _watchScss = () => gulp.watch(CSS_PATH, scss);
 const _watchHbs = () => gulp.watch('*.hbs', hbs);
 const watch = parallel(_watchScss, _watchHbs);
-// const watch = _watchScss;
-
-function restartGhost() {
-    return run("ghost restart", { cwd: "../../../" }).exec();
-}
 
 function clean() {
     return del("assets/build/");
