@@ -5,7 +5,6 @@ $text: #b7deff;
 
 $o-base-color: #143e62;
 
-
 // Octothorpe-specific variables
 // =======================================================
 
@@ -24,7 +23,6 @@ $o-text-size-7: 1.266rem;
 $o-text-size-8: 1.125rem;
 $o-text-size-9: 1rem;
 $o-text-size-10: 0.889rem;
-
 
 $o-post-title-size: $o-text-size-1;
 $o-post-time-color: rgba(darken($text, 20%), 0.8);
@@ -52,7 +50,8 @@ $link-hover: $white;
 $link-focus: $white;
 
 $body-background-color: $o-base-color;
-$body-family: "Inter", BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Helvetica", "Arial", sans-serif;
+$body-family: "Inter", BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto",
+  "Oxygen", "Helvetica", "Arial", sans-serif;
 
 $navbar-background-color: darken($body-background-color, 10%);
 $navbar-height: 4.5rem;
