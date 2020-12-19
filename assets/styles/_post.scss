@@ -30,5 +30,11 @@
 .post-template .post {
   &.has-featured-image {
     margin-top: -$navbar-height;
+
+    .post-featured-image > img {
+      height: 70vh;
+      width: 100%;
+      object-fit: cover;
+    }
   }
 }
