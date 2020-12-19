@@ -3,7 +3,7 @@
 
 $text: #b7deff;
 
-$o-base-color: #143e62;
+$o-base-color: #0e284e;
 
 // Octothorpe-specific variables
 // =======================================================
@@ -53,7 +53,7 @@ $body-background-color: $o-base-color;
 $body-family: "Inter", BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto",
   "Oxygen", "Helvetica", "Arial", sans-serif;
 
-$navbar-background-color: darken($body-background-color, 10%);
+$navbar-background-color: #010101;
 $navbar-height: 4.5rem;
 $navbar-item-color: $white-ter;
 
