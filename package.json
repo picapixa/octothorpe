@@ -1,7 +1,7 @@
 {
     "name": "octothorpe",
     "description": "Ghost theme for The Hash",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "engines": {
         "ghost": ">=3.0.0",
         "ghost-api": "v3"
