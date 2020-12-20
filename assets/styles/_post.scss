@@ -2,6 +2,11 @@
   line-height: 1.75;
   margin-bottom: $size-1;
 
+  .post-tag,
+  .post-title {
+    border-width: 0;
+  }
+
   .post-tag {
     letter-spacing: 0.25rem;
   }

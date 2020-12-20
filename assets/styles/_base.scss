@@ -12,18 +12,23 @@ h6 {
 h1 {
   font-size: $o-text-size-4;
 }
+
 h2 {
   font-size: $o-text-size-5;
 }
+
 h3 {
   font-size: $o-text-size-6;
 }
+
 h4 {
   font-size: $o-text-size-7;
 }
+
 h5 {
   font-size: $o-text-size-8;
 }
+
 h6 {
   font-size: $o-text-size-9;
 }
@@ -52,4 +57,13 @@ figure {
 footer {
   font-size: $size-7;
   padding: $size-1 0;
+}
+
+a {
+  border-style: dotted;
+  border-width: 0 0 1px;
+
+  &:hover {
+    border-style: solid;
+  }
 }
