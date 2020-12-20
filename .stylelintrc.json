@@ -2,6 +2,7 @@
     "extends": "stylelint-config-sass-guidelines",
     "rules": {
         "max-nesting-depth": 3,
-        "selector-max-compound-selectors": 5
+        "selector-max-compound-selectors": 5,
+        "string-quotes": "double"
     }
 }
