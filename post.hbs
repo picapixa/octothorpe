@@ -33,4 +33,13 @@
         </div>
     </article>
 </main>
+
+{{#contentFor "scripts" }}
+<script>
+    $(document).ready(() => {
+        $('.post-content').fitVids();
+    });
+</script>
+{{/contentFor}}
+
 {{/post}}

@@ -4,6 +4,7 @@
 }
 
 .kg-bookmark-container {
+  background: $o-content-bookmark-card-background;
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: $o-content-bookmark-card-radius;
   display: flex;

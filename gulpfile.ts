@@ -1,8 +1,10 @@
 import gulp, { src, dest, series, parallel } from 'gulp';
+import concat from 'gulp-concat';
 import livereload from 'gulp-livereload';
 import rename from 'gulp-rename';
 import sass from 'gulp-sass';
 import styleAlias from 'gulp-style-aliases';
+import uglify from 'gulp-uglify';
 import zip from 'gulp-zip';
 
 import checkNode from 'check-node-version';
@@ -46,7 +48,16 @@ function hbs(done) {
     ], done);
 }
 
-const build = series(copyFontAwesome, scss);
+function js(done) {
+    pump([
+        src(['assets/js/lib/**.{js,ts}']),
+        concat('octothorpe.min.js'),
+        uglify(),
+        dest('assets/build/js')
+    ], done);
+}
+
+const build = series(copyFontAwesome, scss, js);
 
 function serve(done) {
     livereload.listen();
