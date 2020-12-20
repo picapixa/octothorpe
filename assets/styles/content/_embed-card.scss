@@ -1,0 +1,23 @@
+.kg-embed-card {
+  figcaption {
+    font-style: italic;
+    padding: 1rem;
+    text-align: center;
+  }
+
+  .fluid-width-video-wrapper {
+    overflow: hidden;
+    padding-top: 56.25%;
+    position: relative;
+  }
+
+  .fluid-width-video-wrapper iframe,
+  .fluid-width-video-wrapper object,
+  .fluid-width-video-wrapper embed {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+}
