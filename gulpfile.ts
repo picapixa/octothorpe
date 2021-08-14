@@ -73,7 +73,7 @@ function clean() {
 }
 
 function checkNodeVersion(done) {
-    return checkNode({ node: "10.x || 12.x" }, (error, result) => {
+    return checkNode({ node: "10.x || 12.x || 14.x" }, (error, result) => {
         if (error) {
             throw error;
         }
