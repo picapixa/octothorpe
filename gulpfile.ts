@@ -1,103 +1,92 @@
-import gulp, { src, dest, series, parallel } from 'gulp';
-import concat from 'gulp-concat';
-import livereload from 'gulp-livereload';
-import rename from 'gulp-rename';
-import sass from 'gulp-sass';
-import styleAlias from 'gulp-style-aliases';
-import uglify from 'gulp-uglify';
-import zip from 'gulp-zip';
+const {series, watch, src, dest, parallel} = require('gulp');
+const pump = require('pump');
 
-import checkNode from 'check-node-version';
-import del from 'del';
-import pump from 'pump';
+// gulp plugins and utils
+const livereload = require('gulp-livereload');
+const postcss = require('gulp-postcss');
+const zip = require('gulp-zip');
+const uglify = require('gulp-uglify');
+const beeper = require('beeper');
 
-const CSS_PATH = 'assets/styles/**/*.scss';
+// postcss plugins
+const autoprefixer = require('autoprefixer');
+const colorFunction = require('postcss-color-mod-function');
+const cssnano = require('cssnano');
+const easyimport = require('postcss-easy-import');
 
-function copyFontawesomeCss(done) {
-    return pump([
-        src("node_modules/@fortawesome/fontawesome-free/css/all.min.css"),
-        rename('fontawesome.min.css'),
-        dest('assets/build/css')
-    ], done);
-}
-function copyFontawesomeFonts(done) {
-    return pump([
-        src("node_modules/@fortawesome/fontawesome-free/webfonts/**"),
-        dest('assets/build/webfonts/')
-    ], done);
-}
-const copyFontAwesome = parallel(copyFontawesomeCss, copyFontawesomeFonts);
-
-function scss(done) {
-    pump([
-        src(CSS_PATH),
-        styleAlias({
-            "~": "node_modules/",
-        }),
-        sass({ outputStyle: 'compressed' }).on('error', sass.logError),
-        rename('style.min.css'),
-        dest('assets/build/css/'),
-        livereload()
-    ], done);
-}
-
-function hbs(done) {
-    pump([
-        src(["*.hbs"]),
-        livereload()
-    ], done);
-}
-
-function js(done) {
-    pump([
-        src(['assets/js/lib/**.{js,ts}']),
-        concat('octothorpe.min.js'),
-        uglify(),
-        dest('assets/build/js')
-    ], done);
-}
-
-const build = series(copyFontAwesome, scss, js);
+const tailwind = require('tailwindcss');
+const tailwindNesting = require('tailwindcss/nesting');
 
 function serve(done) {
     livereload.listen();
     done();
 }
 
-const _watchScss = () => gulp.watch(CSS_PATH, scss);
-const _watchHbs = () => gulp.watch('*.hbs', hbs);
-const watch = parallel(_watchScss, _watchHbs);
+const handleError = (done) => {
+    return function (err) {
+        if (err) {
+            beeper();
+        }
+        return done(err);
+    };
+};
 
-function clean() {
-    return del("assets/build/");
+function hbs(done) {
+    pump([
+        src(['*.hbs', '**/**/*.hbs', '!node_modules/**/*.hbs']),
+        livereload()
+    ], handleError(done));
 }
 
-function checkNodeVersion(done) {
-    return checkNode({ node: "10.x || 12.x || 14.x" }, (error, result) => {
-        if (error) {
-            throw error;
-        }
-        if (!result.isSatisfied) {
-            throw Error("Check your node version to be compatible with Ghost first.");
-        }
-        done();
-    });
+function css(done) {
+    const processors = [
+        easyimport,
+        colorFunction(),
+        tailwindNesting(),
+        tailwind(),
+        autoprefixer(),
+        cssnano()
+    ];
+
+    pump([
+        src('assets/css/*.css', {sourcemaps: true}),
+        postcss(processors),
+        dest('assets/build/', {sourcemaps: '.'}),
+        livereload()
+    ], handleError(done));
 }
 
-function zipRelease(done) {
-    const p = require('./package.json');
-    const filename = `${p.name}.zip`;
+function js(done) {
+    pump([
+        src('assets/js/*.js', {sourcemaps: true}),
+        uglify(),
+        dest('assets/build/', {sourcemaps: '.'}),
+        livereload()
+    ], handleError(done));
+}
+
+function zipper(done) {
+    const targetDir = 'dist/';
+    const themeName = require('./package.json').name;
+    const filename = themeName + '.zip';
+
     pump([
         src([
-            "**",
-            "!node_modules", "!node_modules/**",
-            "!dist", "!dist/**"
+            '**',
+            '!node_modules', '!node_modules/**',
+            '!dist', '!dist/**'
         ]),
         zip(filename),
-        dest('dist/'),
-    ], done);
+        dest(targetDir)
+    ], handleError(done));
 }
 
-gulp.task('build', build);
-gulp.task('default', series([checkNodeVersion, clean, build, serve, watch]));
-gulp.task('release', series([build, zipRelease]));
+const cssWatcher = () => watch('assets/css/**', css);
+const hbsWatcher = () => watch(['*.hbs', '**/**/*.hbs', '!node_modules/**/*.hbs'], hbs);
+const watcher = parallel(cssWatcher, hbsWatcher);
+const build = series(css, js);
+const dev = series(build, serve, watcher);
+
+exports.build = build;
+exports.zip = series(build, zipper);
+exports.default = dev;

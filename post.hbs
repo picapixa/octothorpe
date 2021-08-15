@@ -1,45 +1,44 @@
 {{!< default}}
 
 {{#post}}
+
 {{> "navbar" has_featured_image="{{#if feature_image}}true{{else}}false{{/if}}"}}
 
-<main class="post {{#if feature_image}}has-featured-image{{/if}}">
-    <header class="post-header">
-        {{#if feature_image}}
-        <div class="post-featured-image">
-            <img src="{{img_url feature_image size="xl"}}"
-                srcset="{{img_url feature_image size="s"}} 320w,
-                {{img_url feature_image size="m"}} 640w,
-                {{img_url feature_image size="l"}} 960w,
-                {{img_url feature_image size="xl"}} 1920w"  
-                alt="{{title}}" />
-        </div>
-        {{/if}}
-        <div class="container columns">
-            <div class="post-metadata column is-offset-2-tablet is-8-tablet">
-                {{#if tags}}
-                <div class="post-tags">
-                    <span class="post-tag is-uppercase is-size-7">{{ primary_tag.name }}</span>
-                </div>
-                {{/if}}
-                <a href="{{ url }}" title="{{ title }}"><h1 class="post-title">{{title}}</h1></a>
-                <time datetime="{{date format='DD-MMM-YYYY'}}">{{date format="DD MMMM YYYY"}}</time>
-            </div>
-        </div>
-    </header>
-    <article class="container columns">
-        <div class="post-content column is-offset-2-tablet is-8-tablet">
-            {{content}}
-        </div>
-    </article>
-</main>
+<div class="{{ post_class }} gh-article leading-relaxed{{#if feature_image}} -mt-16 lg:-mt-24{{/if}}">
+  <header>
+    {{#if feature_image}}
+    <figure>
+      <img
+        class="max-h-70-screen object-cover w-full h-auto max-w-full"
+        srcset="{{img_url feature_image size="s"}} 300w,
+            {{img_url feature_image size="m"}} 600w,
+            {{img_url feature_image size="l"}} 1000w,
+            {{img_url feature_image size="xl"}} 2000w"
+        sizes="(max-width: 1000px) 1000px, 2000px"
+        loading="lazy"
+        src="{{img_url feature_image size="xl"}}"
+        alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}"
+      />
+      {{#if feature_image_caption}}
+        <figcaption>{{feature_image_caption}}</figcaption>
+      {{/if}}
+    </figure>
+    {{/if}}
 
-{{#contentFor "scripts" }}
-<script>
-    $(document).ready(() => {
-        $('.post-content').fitVids();
-    });
-</script>
-{{/contentFor}}
+    <div class="container mx-auto my-0 border-b border-dashed border-sky-500 p-4 md:p-8">
+      {{#if tags}}
+      <div class="my-2 md:my-4">
+        <span class="text-sm uppercase tracking-widest text-blue-gray-300">{{ primary_tag.name }}</span>
+      </div>
+      {{/if}}
+      <a href="{{ url }}" title="{{ title }}"><h1 class="font-bold text-sky-500 text-2xl md:text-4xl hover:text-sky-200">{{ title }}</h1></a>
+      <time class="block italic my-4" datetime="{{date format='DD-MMM-YYYY'}}">{{date format="DD MMMM YYYY"}}</time>
+    </div>
+  </header>
+
+  <article class="gh-content gh-canvas leading-relaxed my-8 md:text-xl md:leading-loose">
+    {{content}}
+  </article>
+</div>
 
 {{/post}}

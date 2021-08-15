@@ -1,0 +1,14 @@
+{{!--
+Re-usable card for linking to posts
+--}}
+
+<article class="md:px-16">
+  {{^is "tag" }}{{#primary_tag}}
+    <a href="{{ url }}" title="{{ name }}" class="text-sm uppercase tracking-widest text-blue-gray-300">{{ name }}</a>
+  {{/primary_tag}}{{/is}}
+  <a href="{{ url }}" class="post-title is-size-3 has-text-weight-bold">
+    <h2 class="font-bold text-sky-500 text-xl md:text-3xl hover:text-sky-200">{{ title }}</h2>
+  </a>
+  <time class="block text-sm text-blue-gray-400 italic my-2" datetime="{{date format='DD-MM-YYYY'}}">{{date format="DD MMMM YYYY"}}</time>
+  <p>{{ excerpt }}</p>
+</article>
