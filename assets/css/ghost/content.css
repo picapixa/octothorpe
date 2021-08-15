@@ -1,0 +1,271 @@
+/* Content grid
+/* ---------------------------------------------------------- */
+
+.gh-canvas {
+  display: grid;
+  grid-template-columns:
+    [full-start]
+    minmax(4vw, auto)
+    [wide-start]
+    minmax(auto, 240px)
+    [main-start]
+    min(720px, calc(100% - 8vw))
+    [main-end]
+    minmax(auto, 240px)
+    [wide-end]
+    minmax(4vw, auto)
+    [full-end];
+}
+
+.gh-canvas > * {
+  grid-column: main-start / main-end;
+}
+
+.kg-width-wide {
+  grid-column: wide-start / wide-end;
+}
+
+.kg-width-full {
+  grid-column: full-start / full-end;
+}
+
+.kg-width-full img {
+  width: 100%;
+}
+
+/* Content & Typography
+/* ---------------------------------------------------------- */
+
+.gh-content > * + * {
+  margin-top: 4vmin;
+}
+
+.gh-content [id]:not(:first-child) {
+  margin: 1.5em 0 0;
+}
+
+.gh-content > [id] + * {
+  margin-top: 1.5rem;
+}
+
+.gh-content [id] + .kg-card,
+.gh-content blockquote + .kg-card {
+  margin-top: 6vmin;
+}
+
+.gh-content > ul,
+.gh-content > ol,
+.gh-content > dl {
+  padding-left: 1.9em;
+}
+
+.gh-content hr {
+  margin-top: 6vmin;
+}
+
+.gh-content hr + * {
+  margin-top: 6vmin !important;
+}
+
+/* Cards
+/* ---------------------------------------------------------- */
+
+.gh-content :not(.kg-card):not([id]) + .kg-card {
+  margin-top: 6vmin;
+}
+
+.gh-content .kg-card + :not(.kg-card) {
+  margin-top: 6vmin;
+}
+
+figcaption strong {
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.gh-canvas :not(pre) code {
+  @apply align-middle font-normal text-base leading-4 rounded;
+  padding: 0.15em 0.4em 0.15em;
+  border: #e1eaef 1px solid;
+  color: #dc0050;
+  background: #f0f6f9;
+}
+
+.gh-canvas > pre {
+  @apply py-4 px-5 bg-white bg-opacity-80 rounded shadow-md;
+}
+
+.kg-embed-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.kg-image-card img {
+  margin: auto;
+}
+
+.kg-code-card pre {
+  @apply overflow-x-scroll text-base;
+  overflow-x: scroll;
+}
+
+/* Galleries
+/* ---------------------------------------------------------- */
+
+.kg-gallery-card + .kg-gallery-card {
+  margin-top: 0.75em;
+}
+
+.kg-gallery-container {
+  position: relative;
+}
+
+.kg-gallery-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.kg-gallery-image img {
+  display: block;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.kg-gallery-row:not(:first-of-type) {
+  margin: 0.75em 0 0 0;
+}
+
+.kg-gallery-image:not(:first-of-type) {
+  margin: 0 0 0 0.75em;
+}
+
+/* Bookmark Cards
+/* ---------------------------------------------------------- */
+
+.kg-bookmark-card,
+.kg-bookmark-publisher {
+  @apply relative;
+}
+
+/* .kg-bookmark-container,
+.kg-bookmark-container:hover {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row-reverse;
+  color: currentColor;
+  background: rgba(255,255,255,0.6);
+  font-family: var(--font-sans-serif);
+  text-decoration: none;
+  border-radius: 5px;
+  box-shadow: 0 2px 6px -2px rgba(0, 0, 0, 0.1), 0 0 1px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+} */
+.kg-bookmark-container {
+  @apply bg-blue-gray-400 text-blue-gray-700 flex flex-wrap no-underline rounded-md shadow-lg overflow-hidden md:flex-row-reverse;
+  font-family: var(--font-sans-serif);
+}
+
+.kg-bookmark-content {
+  @apply flex flex-col flex-grow order-1 p-4 lg:w-1/2;
+}
+
+.kg-bookmark-title {
+  @apply text-lg font-bold;
+}
+
+.kg-bookmark-description {
+  @apply overflow-hidden text-sm opacity-80 mt-2 max-h-12;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.kg-bookmark-metadata {
+  @apply flex items-center font-normal text-xs whitespace-nowrap overflow-hidden overflow-ellipsis mt-4;
+}
+
+.kg-bookmark-description {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+.kg-bookmark-icon {
+  @apply inline-block w-4 h-4;
+}
+
+.kg-bookmark-thumbnail {
+  @apply flex flex-grow justify-end lg:w-1/2;
+}
+
+.kg-bookmark-thumbnail img {
+  @apply max-w-full h-auto align-bottom object-cover;
+}
+
+.kg-bookmark-author {
+  @apply whitespace-nowrap overflow-ellipsis overflow-hidden ml-1;
+}
+
+.kg-bookmark-publisher::before {
+  content: "•";
+  margin: 0 0.5em;
+}
+
+/* Card captions
+/* ---------------------------------------------------------- */
+
+.kg-width-full.kg-card-hascaption {
+  display: grid;
+  grid-template-columns: inherit;
+}
+
+.kg-width-wide.kg-card-hascaption img {
+  grid-column: wide-start / wide-end;
+}
+.kg-width-full.kg-card-hascaption img {
+  grid-column: 1 / -1;
+}
+
+.kg-width-full.kg-card-hascaption figcaption {
+  grid-column: main-start / main-end;
+}
+
+/* Tables
+/* ---------------------------------------------------------- */
+
+.gh-content table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.gh-content th {
+  padding: 0.5em 0.8em;
+  text-align: left;
+  font-size: 0.75em;
+  text-transform: uppercase;
+}
+
+.gh-content td {
+  padding: 0.4em 0.7em;
+}
+
+.gh-content tbody tr:nth-child(2n + 1) {
+  background-color: rgba(0, 0, 0, 0.1);
+  padding: 1px;
+}
+
+.gh-content tbody tr:nth-child(2n + 2) td:last-child {
+  box-shadow: inset 1px 0 rgba(0, 0, 0, 0.1), inset -1px 0 rgba(0, 0, 0, 0.1);
+}
+
+.gh-content tbody tr:nth-child(2n + 2) td {
+  box-shadow: inset 1px 0 rgba(0, 0, 0, 0.1);
+}
+
+.gh-content tbody tr:last-child {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
